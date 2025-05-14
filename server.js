@@ -22,7 +22,7 @@ mongoose.connect("mongodb+srv://chirinbanu50:Chirin%402710@cluster0.aiwyzc9.mong
   .catch((error) => console.log("Error connecting to MongoDB: ", error));
 
 const app = express();
-const PORT = process.env.PORT || 5005;
+const PORT = process.env.PORT || 5000;
 
 app.use(
   cors({
