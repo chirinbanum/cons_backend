@@ -26,19 +26,15 @@ const PORT = process.env.PORT || 5000;
 
 app.use(
   cors({
-    origin: "https://con-frontend-pi.vercel.app/",  // You may need to adjust the port if your frontend is on a different port http://localhost:5173
-    methods: ["GET", "POST", "DELETE", "PUT"],
-    allowedHeaders: [
-      "Content-Type",
-      "Authorization",
-      "Cache-Control",
-      "Expires",
-      "Pragma",
-    ],
+    origin: function (origin, callback) {
+      // Allow all origins (null for tools like Postman or local files)
+      callback(null, origin || "*");
+    },
     credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"]
   })
 );
-
 app.use(cookieParser());
 app.use(express.json());
 app.use("/api/auth", authRouter);
