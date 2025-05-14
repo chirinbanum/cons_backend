@@ -26,7 +26,7 @@ const PORT = process.env.PORT || 5000;
 
 app.use(
   cors({
-    origin: "http://localhost:5173",  // You may need to adjust the port if your frontend is on a different port
+    origin: "https://con-frontend-pi.vercel.app/",  // You may need to adjust the port if your frontend is on a different port http://localhost:5173
     methods: ["GET", "POST", "DELETE", "PUT"],
     allowedHeaders: [
       "Content-Type",
